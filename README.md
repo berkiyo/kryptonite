@@ -1,2 +1,2 @@
 # kryptonite
-AES and DES encryption tool, written for uni.
+AES and DES encryption tool, written for uni, currently WIP.
