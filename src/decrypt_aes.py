@@ -1,12 +1,29 @@
-from Crypto.cipher import AES
+from Crypto.Cipher import AES
+import time
 import hashlib
 
-password = 'mypassword'
+# start the timer
+start_time = time.time()
+
+password = 'helloworld'.encode("utf8")
 key = hashlib.sha256(password).digest()
 mode = AES.MODE_CBC
-IV = 'This is an IV456'
+init_vector = 'This is an IV456'.encode("utf8")
 
-cipher = AES.new(key, mode, IV)
+i = 10000     # number of iterations
 
-decryptedText = cipher.decrypt()
-print
+# loop
+for x in range (0, i):
+    cipher = AES.new(key, mode, init_vector)
+
+
+    with open('encrypted_data','rb' ) as e:
+        encrypted_data = e.read()
+
+    decrypted_file = cipher.decrypt(encrypted_data)
+
+    with open('decrypted_secret.txt', 'wb') as df:
+        df.write(decrypted_file.rstrip(b'0'))
+
+
+print ("The AES decryption took", time.time() - start_time, "to run")
