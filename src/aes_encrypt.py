@@ -11,7 +11,7 @@ mode = AES.MODE_CBC
 init_vector = 'This is an IV456'.encode("utf8")
 i = 10000     # number of iterations
 
-# Padding the message to meet 32 bit requirement
+# Padding the message to meet 128 bit requirement
 def message_padding(file):
     while len(file)%16 != 0:
         file = file + b'0'
