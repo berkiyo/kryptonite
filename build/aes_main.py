@@ -19,7 +19,7 @@ password = 'helloworld'.encode("utf8")
 key = hashlib.sha256(password).digest()
 mode = AES.MODE_CBC
 init_vector = 'This is an IV456'.encode("utf8")
-i = 10000     # number of iterations
+i = 50000     # number of iterations
 
 # Padding the message to meet 128 bit requirement
 def message_padding(file):
